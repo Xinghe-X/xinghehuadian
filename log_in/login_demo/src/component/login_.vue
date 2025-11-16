@@ -48,7 +48,7 @@ html,
 body {
   overflow: hidden;
   margin: 0;
-  padding: 0;
+  padding: 1px;
   height: 100%;
 }
 </style>
