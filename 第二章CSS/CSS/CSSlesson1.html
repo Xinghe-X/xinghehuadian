@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--*{}常用于初始化-->
+    <style>
+    *{
+        color:red; 
+        font-size:50px;
+    }
+    span{
+        color:green;
+    }
+    .text{
+        color:aqua;
+    }
+    </style>
+    <link rel="stylesheet" href="./csslesson1.css">
+</head>
+
+<body>
+    <p>
+        第一节课记住CSS语法，选择器+样式，同时记住样式的种类有color，font-size字体大小,如果用html文件写css需要放在head标签下创建的style里
+        例：
+    <style>
+        h1{
+            color:blue;
+            font-size:30px;
+        }
+    </style>
+    </p>
+    <p>
+        第二节课学习
+        内联样式（行内样式）
+        例：<h1 style="color:bule;font-size:30px;"></h1>不推荐，缺乏整体性以及规范性
+        所以采用内部样式
+        在head中添加style标签
+        例：
+    <style>
+        h1{
+            color:blue;
+            font-size:30px;
+        }
+    </style>但是在多文件例如超链接中，仍需要写很多遍，然后采用
+    外部样式
+    详情见CSSlesson.css中
+    然后在head中添加<link>标签
+    </p>
+    
+        <h1>这是标题</h>
+        <h2>这是<span>第二个</span>标题</h2>
+        <h3 class="text">这是第三个标题</h3>
+        <p>全局选择器</p>
+        <p>元素选择器</p>
+        <p>类选择器</p>
+        <p>ID选择器</p>
+        <p>合并</p>
+        <p>优先级：内联＞ID＞类＞元素</p>
+
+</body>
+
+</html>

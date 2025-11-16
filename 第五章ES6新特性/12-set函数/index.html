@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //set 集合
+        var s=new Set();
+        var arr=[10,20,30];
+        arr.forEach(x=>s.add(x));
+
+
+        
+
+        char="wudililiefengdawang";
+        var t=new Set(char);
+        console.log(t);
+        console.log([...t].join(""));
+        console.log(t.size);
+
+        t.add(100);
+
+        t.delete(100);
+
+        t.has('w');    //返回布尔值
+
+        t.clear();
+    </script>
+
+
+</body>
+</html>

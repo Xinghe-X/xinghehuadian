@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Async 可以将异步变成同步
+        function print(){
+            setTimeout(()=>{
+                console.log("定时器");
+            },10)
+            console.log("hello world")
+        }
+        // print hello world 和定时器 因为定时器是异步的
+
+        function timeout(ms){
+            const promise = new Promise((resolve,reject)=>{
+                setTimeout(resolve,ms)
+            })
+        }
+    </script>
+</body>
+</html>

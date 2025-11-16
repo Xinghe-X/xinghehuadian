@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let arr = [1,2,3,4];
+        const {log}=console;
+        log(...arr);           //将数组中元素按逗号隔开
+        log(arr.concat(arr));
+
+
+        //新增方法 Array.from
+        
+        function add(){
+            log(arguments)
+        }
+        add(10,20,30);
+
+        //伪数组
+        var a={
+            "1":"liliefeng",
+            "2":"zhangyifan",
+            "3":"xuliefeng",
+            length:3
+        }
+        // Array.from 可以将以上类型变成数组
+        // Array.of 将一组值变成数组
+
+    </script>
+
+
+</body>
+</html>

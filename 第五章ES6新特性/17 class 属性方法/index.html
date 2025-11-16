@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+            //实例方法
+            say(){
+                //指向实例对象
+                console.log(this.age);
+            }
+            static sayHello(){
+                //this 指向类
+                console.log(this.age);
+            }
+        }
+        //实例对象
+        var p =new Person("iwen",19);
+        //静态方法不能通过实例对象调用
+        Person.sayHello();  //undefine
+        p.say();
+        //静态属性
+        Person.age=30;
+    </script>
+
+
+
+</body>
+</html>

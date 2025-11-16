@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3{
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 防抖用于浏览器优化 -->
+    <h3>无敌周星成大王</h3>
+    <h3>无敌周星成大王</h3>
+    <h3>无敌周星成大王</h3>
+    <h3>无敌周星成大王</h3>
+    <h3>无敌周星成大王</h3>
+    <h3>无敌周星成大王</h3>
+    
+    <script>
+
+
+        function debounce(fn,delay){
+            var timer=null;
+            return function(){
+                if(timer){
+                    clearTimeout(timer);
+                }
+                timer=setTimeout(fn,delay);
+            }
+        }
+
+        // 滚动事件
+        window.onscroll=debounce(scrollHandle,200)
+        
+        function scrollHandle(){
+            var scrollTop=document.documentElement.scrollTop;
+            console.log(scrollTop);                                 // 执行很多次 频率高 不能把浏览器性能全放在这
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>hello1</div>
+    <div>hello1</div>
+    <p class="text">hello 我是p标签</p>
+    <form name="login"></form>
+    <div id="root">我是id选择器</div>
+    <div class="nav">12</div>
+    <div class="nav">11</div>
+    <div id="container"></div>
+
+    <script>
+    //document对象 方法 获取元素
+
+    //document.getElementByTagName()   
+    // // 搜索 HTML 标签名，返回符合条件的元素。 它的返回值是一个类似数组对象，可以实时反应HTML文档的变化。如果没有匹配的元素，返回一个空集
+    var div1=document.getElementsByTagName("div")[0];
+    div1.innerHTML="hello world";
+
+    var text=document.getElementsByClassName("text")[0];
+    text.innerHTML="hello! 我是被jS修改的P标签";
+
+    //使用率极低
+    var name=document.getElementsByName("login");
+    console.log(name);
+    
+    var root=document.getElementById("root");
+    console.log(root);
+    root.innerHTML="我是被JS修改的id选择器";
+ 
+    // HTML5增加的版本
+    //document.querySelector()    方法接受一个CSS选择器作为参数，返回匹配该选择器的元素节点
+    // var navs=document.querySelector(".nav");
+    // console.log(navs);      //默认只打印一个
+
+    var nav=document.querySelectorAll(".nav");
+    console.log(nav);
+
+    //上节课为读取，修改元素 这节课创建元素
+
+    var text = document.createElement("p");
+    var content = document.createTextNode("我是文本");
+    text.appendChild(content);
+    var id=document.createAttribute("id");
+    id.value="root";
+    // appendChild：将内容放到子元素或容器中
+    
+    text.setAttributeNode(id);
+    var container=document.getElementById("container");
+    container.appendChild(text);
+    console.log(text);
+
+    console.log("id");
+
+
+
+    </script>
+</body>
+</html>

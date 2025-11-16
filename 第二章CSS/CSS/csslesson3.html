@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./sucai/图标/iconfont.css">
+    <style>
+        .box{
+            width:200px;
+            height:200px;
+            background-color:red;
+            float:left;
+        }
+        .container{
+            width:400px;
+            height:400px;
+            background-color:purple;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        9.1 浮动
+        浮动的定义：flot定义元素在哪个方向移动，任何元素都可以浮动
+        浮动以后，元素脱离文档流
+        浮动只有左右
+        例：
+        <div class="box"></div>
+        <div class="container"></div>
+        box覆盖在container上
+        脱离文档流，解决图片之间存在缝隙问题，还可以将竖向摆放变成横向摆放，当宽度不够时，会挤到下一行
+        
+        清除浮动
+        当设置浮动后，浮动会造成父元素的高度塌陷
+        清楚副作用方法
+        1、父元素设置高度
+        2、受影响元素增加clear属性 clear：both；
+        3、overflow清除浮动        在父元素增加 overfloat：hidden； clear：both；
+        4、伪对象方式              
+        .container::after{
+            contend:"";
+            display:block;
+            clear:both;
+        }
+
+        定位
+        position 属性指定了元素的定位类型
+        值：relative  相对定位 absolute 绝对定位   fixed  固定定位   固定和绝对定位会脱离文档流   每设置一个绝对定位，就是一层
+        <div class="box1"></div>
+        .box1{
+            width:200px;
+            height:200px;
+            position:relative;
+            top:200px;
+            left:200px;
+        }
+        固定定位无论怎么滚动，都不会变 一般一个网页仅有一个固定定位
+        相对定位和绝对定位是相对于有定位的父级元素进行调整，如果父级元素没有定位，则逐层寻找，直到底层文档
+        z-index 堆叠顺序谁大谁在上边 z-index：100 覆盖在 z-index：50上
+
+        CSS3新特性
+        圆角效果
+        div{
+            width:56px;
+            height:56px;
+            background-color:blue;
+            border-radius:20px;     将方形区域的棱角变圆  越大越圆  100%完全变圆
+            可以有四个值 一个值默认四个角相同   两个值 第一个为 左上与右下 第二个为右上和左下 三个值 第一个左上  第二个 右上 左下 第三个 右下角 四个值 顺时针
+        }
+        阴影效果
+        box-shadow: h-shadow v-shadow blur color;    h-shadow 必选 水平阴影的位置  v-shadow 必选 垂直阴影的位置 blur 可选 模糊距离  color 可选 阴影的颜色
+        .box{
+            width:400px;
+            height:400px;
+            background-color:blue;
+            margin: 0 auto;  上下为0 左右自动平均
+            box-shadow: 0 0 10px gray;   
+        }
+
+        动画
+        动画是使元素从一种样式逐渐变化为另一种样式的效果，可以改变任意多的样式任意多的次数
+        使用百分比来规定变化发生的时间，或用关键词form和to，等同于0%100%，0%是动画的开始100%使动画的完成
+        @Keyframes + 自拟名称
+        例：
+        @Keyframes mycartoon{
+            from{
+
+            }
+            to{
+
+            }
+            或者
+            0%{
+
+            }
+            50%{
+
+            }
+            100%{
+
+            }
+        }
+        animation执行动画
+        animation: name duration timing-function delay iteration-count direction
+        name 设置动画的名称
+        duration 动画持续时间
+        timing-function 设置动画效果的速率 ease 逐渐变慢（默认） linear 匀速 ease-in加速 ease-out 减速 ease-in-out 先加速后减速
+        delay 设置动画开始的时间（延迟执行）
+        iteration-count 设置动画执行的次数，infinite为无限次循环
+        direction 设置动画播放的方向 normal 默认向前播放 alternate 在第偶数次向前播放，第奇数次反方向播放
+        触发方式 animation-play-state 控制动画的播放状态 running代表播放 paused 代表暂停播放
+        div:hover{
+            animation-play-state:paused;
+        }
+
+        媒体查询
+        不同设备加载不同样式
+        <meta name="viewport" content="width=device-width宽度等于当前设备宽度, initial-scale=1.0初始缩放比例（默认为1）">maximum-scale 允许用户缩放到的最大比例（默认为1）
+        用户是否可以手动播放（默认值设置为no）
+        媒体查询语法
+        例：
+        @media screen and (max-width:768px){手机显示
+            .box{
+                display:none;不显示
+                display:block;显示
+            }
+        }
+        @media screen and (min-width:768px) and (max-width:996px){平板显示
+            .box{
+
+            }
+        }
+        @media screen and (min-width:996px){电脑显示
+            .box{
+
+            }
+        }
+
+        雪碧图
+        CSS Sprite 也叫CSS精灵图、CSS雪碧图 是一种网页图片应用处理方式。它允许你将一个页面涉及到的所有零星图片都包含到一张大图中去。
+        优点：减少图片字节、网络请求次数
+        原理：
+        通过background-image引入 background-position把背景图片移动到自己需要的位置
+        <span class="icon"></span>
+        span{
+            display:block; 内联元素无法设置宽高，此步骤将内联元素变为块级元素
+            width:45px;
+            height:70px;
+            background-image:url(1.jpg);
+            background-position:-20px 0; x轴、y轴;
+        }
+
+        字体图标
+        优点
+        1、轻量性：加载速度快，减少http请求
+        2、灵活性：可以利用CSS设置大小颜色
+        3、兼容性：网页字体支持所有现代浏览器，包括IE低版本
+        <span class="iconfont icon-xingxing daxiao"></span>
+        .daxiao{
+            font-size:100px;
+            color:blue;
+        }
+    </p>
+</body>
+</html>

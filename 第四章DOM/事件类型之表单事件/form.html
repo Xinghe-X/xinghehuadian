@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form id="form" onsubmit="submitHandle">
+        <input type="text" name="username">
+        <button id="btn">清空</button>
+        <button>提交</button>
+    </form>
+
+    <script>
+        var btn=document.getElementById("btn");
+        var form=document.getElementById("form")
+        btn.addEventListener("click",function(){
+            form.reset();
+        })
+
+
+        function submitHandle(){
+            console.log("想做的事情");
+        }
+    </script>
+
+</body>
+</html>

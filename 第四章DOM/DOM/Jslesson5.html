@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:50px;
+            height:50px;
+        }
+        .box1{
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box" id="root">HEllo</div>
+    <script>
+        var root = document.getElementById("root");
+        root.id="roots";
+        root.className="box box1";
+
+        // Element.classList();    add 增加一个class  romove 移除    contains  是否包含       toggle   移出当前元素
+
+        console.log(root.classList.add("mybox"));
+        root.classList.remove("box");
+        if(root.classList.contains("box1")){
+            console.log("有");
+        }
+        else{
+            console.log("无");
+        }
+        console.log(root.innerHTML="大家好呀");
+        console.log(root.innerText="11111111");//innerHTML能识别标签  innerText不能
+
+
+
+
+    </script>
+
+
+
+</body>
+</html> 

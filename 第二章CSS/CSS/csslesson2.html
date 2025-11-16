@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .style1{
+            color:blue;
+        }
+        .style2{
+            font-size: 30px;
+        }
+        #mystyle{
+            color:red;
+        }
+        p,h1{
+            color:black;
+        }
+        mode,mode1{
+            color:brown;
+        }
+  
+    </style>
+</head>
+<body>
+    <p>8月28日
+        第一节课笔记：
+        1、全局选择器（优先级最低，一般用作初始化）
+        例：
+        *{
+            color:blue;
+        }
+        2、元素选择器
+        例：
+        h1{
+            color:blue;
+        }
+        
+        （8.30）3、类选择器(可以被多种标签使用，命名规则为数字字母下划线，不能有特殊字符，数字不能开头)
+        例：
+            <p class="style1"></p>
+            如果一个标签使用多个类选择器，则遵循
+            <p class="style1 style2"></p>
+            4、id选择器（相同名称只能使用一次，命名规则同上,以#开头）
+        例：
+            <p id="mystyle"></p>
+            <h1 id="mystyle"></h1>  这是禁止的
+            5、合并选择器(用逗号)
+        例：
+            <p class="mode">我是p标签</p>
+            <h1 class="mode1">我是标题</h1>
+            选择器优先级
+            内联样式>id选择器>类选择器>元素选择器>全局选择器
+    </p>
+    补充知识<span>标签可以当作文本的盒子，将里面文字通过元素选择器设置成自己想要的样式，而跟<p>标签里其他文字不一样。
+    <p>
+        字体属性
+        
+        p{
+            颜色
+            color:red;
+            color:#ff0000;
+            rgb:(255,0,0);
+            rgba(255,0,0,1);a代表透明度
+            大小
+            font-size:40px;
+            chorome浏览器接受最小字体是12px
+            粗细
+            font-weight:bold;
+            font-weight:bolder;
+            font-weight:lighter;
+            font-weight:100-900;400为默认值
+            样式
+            font-style:normal;
+            font-style:italic;斜体
+            字体
+            font-family:"Microsoft YaHei"
+        }
+        背景属性
+        div{
+            width:400px;
+            height:400px;
+            background-color:yellow;
+            background-image: url(./image);
+            background-repeat:no-repeat不重复 repeat-x x方向重复 repeat-y y方向重复 默认都重复
+            background-size:cover 充满整个容器（无空白） contain （有空白）
+            background-position: left top左上角 left center 左中 left bottom 左下 x% y%
+        }
+        文本属性
+        <h3></h3>
+        h3{
+            text-align:left center right
+            text-decoration: underline下划线 overline上划线 line-through删除线
+            text-transform:captialize每个单词首字母大写 uppercase 全部大写 lowercase全部小写
+            text-indent:首行缩进多少像素
+        }
+        表格属性
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        table，td{
+            border:1px边框 solid实线 red红色
+        }
+        table{
+            border-cpllapse:collapse;使默认双边框变成单边框
+            width：
+            height：
+        }
+        td{
+            text-align:center;
+            vertical-align:center;垂直居中
+            padding:20px 边距
+            background-color:
+            color:
+        }
+        关系选择器
+        1、后代选择器
+        选择所有被E元素包含的F元素，用空格隔开
+        <ul>
+            <li></li>
+            <div>
+                <li>直接子代生效标签
+                    <li></li>
+                </li>
+            </div>
+        </ul>
+        ul li{
+            color:red;
+        }
+        2、子代选择器
+        只对直接子代选择器生效
+        div>li{
+            color:red;
+        }
+        3、相邻兄弟选择器
+        选择紧跟E元素后的F元素，用➕表示
+        E+F{
+
+        }
+        <h3></h3>
+        <p></p>相邻生效
+        <p></p>         通用也生效
+        h3+p{
+            color:red;
+        }
+        4、通用兄弟选择器
+        h3~p{
+
+        }
+        CSS的盒子模型 BoxModel 在设计和布局中常使用
+        margin 外边距   border边框   padding内边距   实际内容 content
+        div{
+            padding:30px左右 20px上下;
+            border:solid blue;
+            margin:50px
+            padding-left:
+            padding-right:
+        }
+        弹性盒子模型flex box   CSS的盒子模型3的新布局
+        <div class="container">
+            <div class="box1"></div>
+            <div class="box2"></div>
+            <div class="box3"></div>
+        </div>
+        .container{
+            width:500px;
+            height:500px;
+            background-color:gray;
+            display:flex; 不加这个默认竖向排列 加这个默认横向排列
+            flex-direction:row 默认横向摆放 column 默认垂直摆放
+            justify-content:flex-start | flex-end | center 垂直方向居上居中居下
+            align-items:flex-start | flex-end | center 水平方向居上居中居下
+        }
+        .box1{
+            width:100px;
+            height:100px;
+            background-color:blue;
+            flex:2;
+        }
+        .box2{
+            width:100px;
+            height:100px;
+            background-color:red;
+            flex:2;
+        }
+        .box3{
+            width:100px;
+            height:100px;
+            background-color:yellow;
+            flex:1;子元素设置这个宽度将取决于父元素
+        }
+ </html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //数组
+        var arr=['sxt','baizhan','it'];
+        console.log(arr[0]);
+        console.log(arr[1]);
+        console.log(arr[2]);
+        console.log(arr[3]);  //undefine
+        var names=[];
+        names[0]="chang";
+
+
+        var arr1=['computer',[1,2,3]];
+        console.log(arr1[1][0]);
+        // arr1.length 返回数组成员个数
+
+        // 循环输出数组
+        for(var i=0;i<arr.length;i++)
+    {
+        document.write(arr[i]);
+    }
+    document.write('\n');
+        for(var i in arr)
+    {
+         document.write(arr[i]);
+    }
+    // 数组的静态方法  判断是否为数组类型 返回布尔值
+    console.log(Array.isArray(arr));
+
+    // push pop 尾部添加或删除 并返回数组长度
+    var arr=[];
+    arr.push("大家好","hello world");
+    arr.pop();
+    console.log(arr);
+
+    // shift unshift 在数组头部进行添加或删除 并返回被删除的元素
+    var arr=['python','java','C++'];
+    var item
+    while(item=arr.shift())
+    {
+        console.log(item);
+    }
+    // join() 以指定参数作为分隔符 将所有数组成员链接为一个字符串返回。如果不提供参数 默认用逗号进行分隔
+    var arr=[1,2,3,4,5,6]
+    console.log(arr.join());
+    console.log(arr.join(""));
+    console.log(arr.join("|"));
+    
+    //用数组的join与字符串的split能实现数组与字符串之间的相互转化
+
+    //concat 数组的合并
+    var arr=['hello'].concat([' world']);
+    console.log(arr);
+
+    //reverse 数组翻转
+    var str='helloworld';
+    var arr=str.split("");
+    arr.reverse();
+    console.log(arr.join(""));
+
+    // indexOf 返回给定元素再数组中第一次出现的位置，没有返回-1 可有第二个参数表示 开始搜索的位置
+
+    var arr=[1,2,3,4,5,6]
+    console.log(arr.indexOf(7));
+
+    //函数 也存在函数名提升 可以使用在前 定义在后
+    function add(s)
+    {
+        console.log("结果");
+    }
+    add();
+
+    function add(x,y)
+    {
+        console.log(x+y);
+    }
+    add(10,20)
+    
+    function add(x,y)
+    {
+        return x+y;
+    }
+    var result=add(10,20);
+    document.write(result);
+
+
+    // 对象概述
+    var user= {
+        name:"ligengliang",
+        age:22,
+        flag:true,
+        jobs:["student","monitor"],
+        getname:function(){
+            console.log("ligengliang");
+        },
+        container:{
+            frontend:"web前端",
+            backend:["python","java","C++"]
+        }
+    }
+
+    for(var i=0;i<user.jobs.length;i++)
+    {
+        console.log(user.jobs[i]);
+    }
+    user.getname();
+    console.log(user.container.frontend);
+    //math 对象
+    Math.abs();
+    var i=-5;
+    console.log(Math.abs(i));
+    console.log(Math.max(-1,2,0));
+    console.log(Math.min(-1,2,0));
+    Math.floor()  //向下取整
+    Math.ceil()   //向上取整
+    console.log(Math.random());  //生成随机数>=0   <1的随机数
+
+    function getrandombitrary(min,max)
+    {
+        var result=Math.random()*(max-min)+min;    // 最小数到最大值之间操作
+        result=Math.floor(result);                 // 向下取整
+        console.log(result);                   
+    }
+    getrandombitrary(0 , 100);
+
+    //Date对象是Js原生世间苦 以1970年一月一日作为时间的零点
+    Date.now();  //返回当前时间距离时间零点的毫秒数  相当于Unix时间戳乘以1000
+
+    console.log(Date.now());
+
+
+    //时间戳是指格林威治时间1970年01月01日00时00分00秒（北京时间1970年01月01日08时00分00秒）起至现在的总秒数
+    //Unix是20世纪70年代出现的一个操作系统，Unix认为1970年...为时间纪元，Js也就遵循了这一约束
+
+
+    console.log(new Date(Date.now()));
+    
+    console.log(new Date(Date.now()).getDate());     // 返回几号
+    console.log(new Date(Date.now()).getDay());      // 返回星期几   星期日为0  星期一 为1
+    console.log(new Date(Date.now()).getMonth()+1);  // 返回月份   0是1月
+
+    function gettime()
+    {
+        var year=new Date(Date.now()).getFullYear();  // 返回几几年
+        var month=new Date(Date.now()).getMonth()+1;  // 返回月份
+        var day=new Date(Date.now()).getDate();       // 返回日
+        console.log(year+"-"+month+"-"+day);
+
+    }
+    gettime();
+
+    function leftDays()
+    {
+        var today=new Date();
+        var endYear=new Date(today.getFullYear(),11,31,23,59,59,99);
+
+        var msPerDay=24*60*60*1000;
+        var result=(endYear.getTime()-today.getTime()) / msPerDay;
+        console.log(result);
+        
+    }
+
+
+    </script>
+
+
+</body>
+</html>

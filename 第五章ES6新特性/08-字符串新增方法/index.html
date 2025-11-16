@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const {log}=console;
+        var a="helloworld";
+        var str="llo"
+        log(a.includes(str));           //返回布尔值 是否找到参数字符串 
+        log(a.startsWith(str));         //返回布尔值 参数字符串是否在原字符串头部
+        log(a.endsWith(str));           //返回布尔值 参数字符串是否在原字符串尾部
+        //以上三个方法均支持第二个参数 表示开始搜索的位置
+
+        log(a.repeat(3));               //重复打印字符串
+
+
+        var h="hello";
+        log(h.padStart(10,"ab"));            // 用ab在h的头部补全至10位   但是不改版h原本的值 还有padEnd
+
+        var it="   it   baizhan    "
+        log(it.trim());
+        log(it.trimStart());
+        log(it.trimEnd());
+        
+
+        var myIt="wudililiefeng";
+        log(myIt.at(3));          //at() 支持负索引
+        
+
+    </script>
+
+
+
+
+</body>
+</html>

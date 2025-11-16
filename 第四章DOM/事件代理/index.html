@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 点击所有LI标签 -->
+    <ul id="list">  
+        <li>列表一</li>
+        <li>列表二</li>
+    </ul>
+
+    <script>
+            // 由父节点的监听函数统一处理多个子元素的事件  这种方法叫做事件代理
+
+
+
+
+
+        var list = document.getElementById("list");
+        list.addEventListener("click", function (e) {
+            if (event.target.tagName === "LI") {            //.toLowerCase()方法可以转换成小写  默认全是大写
+                console.log(event.target.innerHTML);
+                //do something
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

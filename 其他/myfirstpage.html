@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于flex框架搭建的我的前端网页</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: gray;
+        }
+
+        /* * {
+            border: 1px solid black;
+        } */
+
+        .flex {
+            display: flex;
+        }
+
+        .tybg {
+            background-color: white;
+        }
+
+        .flex1 {
+            flex: 1;
+        }
+
+        .column {
+            flex-direction: column;
+        }
+
+        .mg8 {
+            margin: 8px;
+        }
+
+        .mgr8 {
+            margin-right: 8px;
+        }
+
+        .mgt8 {
+            margin-top: 8px;
+        }
+
+        .yinying {
+            box-shadow: rgb(0 0 0 / 20%)0px 2px 1px -1px,
+            rgb(0 0 0 / 14%)0px 1px 0px,rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+        }
+    </style>
+</head>
+
+<body class="flex">
+    <div style="width:200px" class="tybg mg8 yinying"></div>
+    <div class="flex1 flex column">
+        <div style="height:60px" class="tybg yinying"></div>
+        <div class="flex1 flex tybg yinying">
+            <div style="flex:3;" class="flex column tybg mg8 yinying"></div>
+            <div style="flex:1;" class="flex column mgr8 mgt8">
+                <div style="height:150px" class="tybg yinying"></div>
+                <div style="height:300px" class="tybg yinying"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

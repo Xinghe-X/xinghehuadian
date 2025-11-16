@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 定时器之setTimeout()  延迟执行-->    
+    <script>
+
+        // setTimeout(function(){
+        //     console.log("大家好")
+        // },3000)
+
+
+        var name="itbaizhan";
+        var user = {
+            name:"changjiahua",
+            getName:function(){
+                //this永远指向当前调用者
+                setTimeout(function(){
+                    console.log(this.name);
+                },3000);
+            }
+        }
+        var timer=setTimeout(function(){
+            console.log("无敌李烈峰大王");
+        },3000);
+        // 取消定时器
+        clearTimeout(timer);
+
+        user.getName();
+        //setTimeout使得方法内部的this关键字指向全局环境，而不是定义时所在的那个对象
+
+
+        var user1={
+            name:"changjiahua",
+            getName:function(){
+                var that=this
+                setTimeout(function(){
+                    console.log(that.name)
+                },3000)
+            }
+        }
+        user1.getName();
+
+    </script>
+
+    <!-- 定时器之setInterval()  每间隔多少时间执行-->     
+     <script>
+
+        var i=0;
+        setInterval(function(){
+            i++;
+            console.log(i);
+        },2000)
+     </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火灾危害警示</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <h1>火灾危害警示</h1>
+        <p>了解火灾危害，提高防范意识</p>
+    </header>
+
+    <main>
+        <section class="fire-hazards">
+            <div>
+                <h2>火灾的主要危害</h2>
+            </div>
+            <div class="hazard-card" id="hazard1">
+                <h3>生命威胁</h3>
+                <p>火灾产生的有毒烟雾和高温可在短时间内致人死亡。</p>
+            </div>
+            <div class="hazard-card" id="hazard2">
+                <h3>财产损失</h3>
+                <p>火灾可造成房屋、车辆等财产在短时间内化为灰烬。</p>
+            </div>
+            <div class="hazard-card" id="hazard3">
+                <h3>环境破坏</h3>
+                <p>森林火灾会破坏生态系统，影响空气质量。</p>
+            </div>
+        </section>
+
+        <section class="image-gallery">
+            <h2>火灾相关图片</h2>
+            <div class="controls">
+                <button id="fetchImages">获取火灾警示图片</button>
+                <input type="text" id="keywordInput" placeholder="输入搜索关键词">
+            </div>
+            <div class="gallery-container" id="imageContainer">
+                <!-- 图片将通过JS动态加载到这里 -->
+                <p class="placeholder">点击上方按钮获取火灾相关图片</p>
+            </div>
+        </section>
+
+        <section class="prevention-tips">
+            <h2>火灾预防小贴士</h2>
+            <ul>
+                <li>定期检查电器线路</li>
+                <li>勿乱扔烟蒂</li>
+                <li>厨房用火不离人</li>
+                <li>配备灭火器材</li>
+                <li>熟悉逃生路线</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>2025年防火宣传,此网页仅用于小组课程设计</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

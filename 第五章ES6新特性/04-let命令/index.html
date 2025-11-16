@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        1、var关键字：函数级的作用域
+        2、let关键字：块级作用域 {}    不存在变量提升      不允许重复声明
+        */
+        function fn1(){
+            var i=1;
+        }
+        fn1();
+        console.log(i);   // 报错
+
+
+
+    </script>
+
+
+</body>
+</html>

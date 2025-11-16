@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    9.2 JS简介
+    轻量级脚本语言，“脚本语言” 嵌入式语言
+    1、操控浏览器
+    2、广泛使用
+    3、易学
+    ECMAScript（ES6）与JavaScript关系 前者使后者的规格 后者使前者的一种实现
+
+    JS语句、标识符
+    <script>
+        var num = 10; 
+    </script>
+    语句例子
+        标识符是由字母,美元符号$,下划线和数字组成,其中数字不能开头
+        中文是合法的命名规则但是不推荐
+        保留关键字不能用作命名
+    
+    变量
+    <script>
+    var num=10;
+    console.log(num);
+    </script>
+    <script>
+    console.log(age);
+    var age=10;
+    </script>
+    会被电脑执行成
+    <script>
+        var age;
+        console.log(age);
+        age=10;
+    </script>
+    这种操作叫做变量提升
+
+    JS引入到文件
+    <script src="./Jslesson1.js"></script>
+    引入网络文件 需要在head里引入对应网址
+
+    Js注释与常见输出方式
+    <script>
+        //这是单行注释
+        /*
+        这是多行注释
+        这是多行注释
+        */
+       /*
+            输出方式
+            alter()   弹出框
+            document.write()   直接到网页上
+            console.log()    在控制台上
+       */
+    </script>
+    <!--html5注释-->
+
+    数据类型
+    数值、字符串、布尔值、undefined、null 对象   ES6新增 Symbol  BigInt
+    原始类型：数值、字符串、布尔值
+    <script>
+        // 数值/数字类型
+        var age=20;
+        // 字符串类型 被单引号或者是双引号包裹
+        var name="iwen";
+        var name2='尚学堂'
+        // 布尔值
+        var learn = true;
+        //合成类型 object(对象)
+        var user={
+            age:18,
+            name:"iwen",
+            hunyin:falese,
+        }
+        
+        //undefined null 一般看作特殊类型 代表没有、空的意思
+
+        //typeof()运算符 判断基本数据类型
+        var age1=20;
+        var name1="iwen";
+        var flag=true;
+        console.log(typeof age1);
+        console.log(typeof name1);
+        console.log(typeof flag);
+        //null 一般代表对象的没有
+        //undefined 一般代表数值没有
+
+        // 运算符之算数运算符 + - * / % ++ --
+        // 运算符之赋值运算符 = += -= /= *= %=
+        // 运算符之比较运算符 > < >= <= == === != !==
+        num3=10;
+        num4="10";
+        console.log(num3 == num4)     //只比较数值本身
+        console.log(num3 === num4)    //比较数值和类型
+
+        //运算符之布尔运算符
+        //！取反 &&且 ||或
+        // undefined null 0 " " flase NaN 取反以上值都是true.
+
+        //条件语句之if语句
+        var flag=true;
+        if(flag){
+            console.log("我是真的")
+        }
+    </script>
+</body>
+
+</html>

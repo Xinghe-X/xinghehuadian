@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const {log}=console;
+
+        var name="iwen";
+        var user={
+            name:name,         //可以写成name,
+            age:20,
+            getName:function(){             //可以写成 getName(){}
+                log(this.name);
+            }
+        }
+        log(user.name);
+
+        var ib="itbaizhan"
+        var user={
+            [ib]:"changjiahua",
+            age:16
+        }
+
+        log(user);
+
+    </script>
+
+
+</body>
+</html>
