@@ -14,7 +14,7 @@
                     <div style="display: flex; gap: 10px; flex: 1;">
                         <input type="password" id="keyword" v-model.trim="keyword" placeholder="请输入6位验证码" required
                             class="form-input">
-                        <button type="button" @click="getCode" :disabled="countDown > 0" class="code-btn">
+                        <button type="button" @click="postCode" :disabled="countDown > 0" class="code-btn">
                             {{ countDown > 0 ? `${countDown}秒后重新获取` : '获取验证码' }}
                         </button>
                     </div>
@@ -30,7 +30,7 @@
                         class="form-input">
                 </div>
                 <div class="form-submit">
-                    <input type="submit" value="注册账号" class="submit-btn">
+                    <input type="submit" value="注册账号" class="submit-btn" @click="verify">
                 </div>
             </form>
         </div>
@@ -39,58 +39,93 @@
 
 <script setup>
 
-import { useUserStore } from '@/stores/userStore';
 import { ref } from 'vue'
 import axios from 'axios';
-const userStore = useUserStore();
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const username = ref('');
 const password = ref('');
 const useremail = ref('');
 const keyword = ref('');
-userStore.setUsername(username.value);
-
+const comparekeyword = ref('');
+const response = ref(null);
 const countDown = ref(0);
 
-async function getCode() {
-  
-  if (!useremail.value.trim()) {
-    alert('请输入邮箱！');
-    return;
-  }
+async function postCode() {
 
-  try {
-    const response = await axios.post('/api/register/getCode', {
-      params: { email: useremail.value.trim() }    //URL + 参数
-    });
+    if (!useremail.value.trim()) {
+        alert('请输入邮箱！');
+        return;
+    }
 
-    alert(response.data.msg);
-    countDown.value = 60;
 
-    const timer = setInterval(function() {
-      countDown.value--;
-      if (countDown.value <= 0) {
-        clearInterval(timer);
-      }
-    }, 1000);
+    try {
+        response.value = await axios.post('/api/register/postCode', {
+            email: useremail.value.trim()    //URL + 参数
+        });
 
-  } catch (error) {
-    alert('发送失败，请重试！');
-  }
+        alert(response.value.data.msg);
+        countDown.value = 60;
+
+        const timer = setInterval(function () {
+            countDown.value--;
+            if (countDown.value <= 0) {
+                clearInterval(timer);
+            }
+        }, 1000);
+
+    } catch (error) {
+        alert('发送失败，请重试！');
+    }
 }
+async function verify(event) {
+    event.preventDefault();
+    if (!keyword.value.trim()) {
+            alert('请输入验证码！');
+            return;
+        }
+    try {
+        const compare = await axios.get('/api/register/getkeyword',
+            { params: { email: useremail.value.trim() } });
+
+        comparekeyword.value = compare.data;
+        
+        if (keyword.value == comparekeyword.value) {
+            alert("注册成功！");
+            await axios.post('/api/register/userinformation', {
+                username: username.value.trim(),
+                password: password.value.trim(),
+                email: useremail.value.trim()
+            })
+            router.push('/');
+        }
+
+    } catch (error) {
+        if (keyword.value != comparekeyword.value) {
+            alert("验证码错误！");
+        }
+        else {
+            alert("注册失败,请重试");
+        }
+    }
+}
+
+
+
 </script>
 
 <style scoped>
 .page-container {
     width: 100vw;
-    
+
     height: 100vh;
-    
+
     display: flex;
-    
+
     justify-content: center;
-    
+
     align-items: center;
-    
+
     margin: 0;
     padding: 0;
 }
@@ -133,12 +168,12 @@ hr {
     align-items: center;
     margin-bottom: 20px;
     gap: 12px;
-    
+
 }
 
 .form-group label {
     width: 120px;
-    
+
     text-align: right;
     color: #333;
     font-size: 14px;

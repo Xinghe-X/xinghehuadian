@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="log_in">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/log_in.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

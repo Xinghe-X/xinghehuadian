@@ -22,12 +22,13 @@
 </template>
 
 <script setup>
-/*
+
 import { useUserStore } from '@/stores/userStore';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
     const username= ref('');
     const password= ref('');
+    /*
     const userStore = useUserStore();
     const router = useRouter();
     const handleLogin = () => {
